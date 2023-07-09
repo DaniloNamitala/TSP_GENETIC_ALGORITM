@@ -15,7 +15,7 @@ struct Result {
   int crosoverPerGeneration;
 };
 
-class GeneticAlgoritm {
+class GeneticAlgotihm {
   private:
     std::vector<City> cities;
     std::vector<Individual> population;
@@ -29,7 +29,7 @@ class GeneticAlgoritm {
     };
 
   public:
-    GeneticAlgoritm(std::vector<City> cities) {
+    GeneticAlgotihm(std::vector<City> cities) {
       this->cities = cities;
     };
 
@@ -69,8 +69,8 @@ class GeneticAlgoritm {
       int* winners = tournamentSelection(tournamentSize, crosoverPerGeneration * 2);
       for (int i = 0; i < crosoverPerGeneration; i++) {
         std::pair<Individual, Individual> children = population[winners[i]].crossover(population[winners[i + 1]], mutationRate);
-        population.erase(population.begin() + winners[i]);
-        population.erase(population.begin() + winners[i + 1]);
+        population.erase(population.begin()+i);
+        population.erase(population.begin()+i+1);
         population.push_back(children.first);
         population.push_back(children.second);
       }
